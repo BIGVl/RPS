@@ -38,17 +38,19 @@ computerSelect = computerPlay();
 function playRound (playerSelect, computerSelect) {
 
 
-    if (playerSelect === "rock" && computerSelect === scissors || playerSelect === "paper" && computerSelect === rock || 
-    playerSelect === "scissors" && computerSelect === paper  ) {
+    if (playerSelect === "rock" && computerSelect === 3 || playerSelect === "paper" && computerSelect === 1 || 
+    playerSelect === "scissors" && computerSelect === 2  ) {
     
        let playerWon = console.log("You have won this round!")
     }
-    else if (playerSelect === "scissors" && computerSelect === rock || playerSelect === "rock" && computerSelect === paper || 
-    playerSelect === "paper" && computerSelect === scissors) {
+    else if (playerSelect === "scissors" && computerSelect === 1 || playerSelect === "rock" && computerSelect === 2 || 
+    playerSelect === "paper" && computerSelect === 3) {
        let computerWon = console.log("You have lost this round!")
     }
-    else if (playerSelect === "scissors" && computerSelect === scissors || playerSelect === "rock" && computerSelect === rock || 
-    playerSelect === "paper" && computerSelect === paper) {
+    else if (playerSelect === "scissors" && computerSelect === 3 || playerSelect === "rock" && computerSelect === 1 || 
+    playerSelect === "paper" && computerSelect === 2) {
         let draw = console.log("It's a draw")
     }
+    
     } 
+    console.log(playRound(playerSelect,computerSelect));
