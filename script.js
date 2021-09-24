@@ -1,25 +1,35 @@
 
-    let playerQuestion = prompt ("Choose between rock, paper and scissors!");
-    let playerSelect = playerQuestion.toLowerCase();
+    
+
+    function game () {
+
+    let playerQuestion = "";
+    let playerSelect = "";
     let computerSelect = "";
     let compScore = 0;
     let playerScore = 0;
     let addScore = "";
     
-   function playersChoice () {
-  if (playerSelect === "rock") {
-      console.log("You have choose Rock")
-  }
-  else if (playerSelect === "paper") {
-    console.log("You have choose Paper")
-  }
-  else if (playerSelect === "scissors") {
-    console.log("You have choose Scissors")
-   }
-}; 
-console.log(playersChoice())
+ 
 
-function computerPlay () {
+function playRound (playerSelect, computerSelect) {
+  playerQuestion = prompt ("Choose between rock, paper and scissors!");
+  playerSelect = playerQuestion.toLowerCase();
+
+  function playersChoice () {
+    if (playerSelect === "rock") {
+        console.log("You have choose Rock")
+    }
+    else if (playerSelect === "paper") {
+      console.log("You have choose Paper")
+    }
+    else if (playerSelect === "scissors") {
+      console.log("You have choose Scissors")
+     }
+  }; 
+  console.log(playersChoice())
+
+  function computerPlay () {
 
     let computerPlay = Math.floor(Math.random()*3)+1;
 if (computerPlay === 1) {
@@ -35,8 +45,7 @@ return computerPlay
 }
 computerSelect = computerPlay();
 
-function playRound (playerSelect, computerSelect) {
-
+  
 
     if (playerSelect === "rock" && computerSelect === 3 || playerSelect === "paper" && computerSelect === 1 || 
     playerSelect === "scissors" && computerSelect === 2  ) {
@@ -54,28 +63,43 @@ function playRound (playerSelect, computerSelect) {
         console.log("It's a draw")
         addScore = 3 ; 
     }
-    
-    } 
-    console.log(playRound(playerSelect,computerSelect));
+    if (addScore === 1) {
 
-    function game () {
-      
-
-        if (addScore == 1) {
-
-          playerScore++;
-            console.log("The score is "+ playerScore + " - " + compScore);
-           
-        }
-        else if (addScore == 2) {
-          compScore++;
-          console.log("The score is "+ playerScore + " - " + compScore);
-          
-        }
-        else if (addScore == 3) {
-          console.log("The score is still "+ playerScore + " - " + compScore)
-        }
+      playerScore++;
+      return  console.log("The score is "+ playerScore + " - " + compScore);
        
-        
     }
-    console.log(game());
+    else if (addScore === 2) {
+      compScore++;
+    return  console.log("The score is "+ playerScore + " - " + compScore);
+      
+    }
+    else if (addScore === 3) {
+    return  console.log("The score is still "+ playerScore + " - " + compScore)
+    }
+  
+    }
+    playRound(playerSelect,computerSelect);
+    playRound(playerSelect,computerSelect);
+    playRound(playerSelect,computerSelect);
+    playRound(playerSelect,computerSelect);
+    playRound(playerSelect,computerSelect);
+
+    if (playerScore < compScore) {
+      return console.log("You have lost the game! Try again, I know you can do it!")
+    }
+       else if (playerScore > compScore) {
+         return console.log("You have  won the game! Congratulations!")
+       }
+        else if (playerScore === compScore) {
+          return console.log("It's a tie! What a battle!!")
+        }
+    }
+    game();
+  
+
+
+
+
+
+
