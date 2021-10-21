@@ -2,12 +2,13 @@ let compScore = 0;
 let playerScore = 0;
 let playerSelect = 0;
 
-
+//Variables accessing HTML
 const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
 const buttons = document.querySelector('.buttons');
 const score = document.querySelector('.score');
+const declareW = document.querySelector('.declareW');
 
 
 
@@ -50,7 +51,17 @@ buttons.addEventListener('click', e => {
   playRound(playerSelect,computerPlay());
 });
 
-
+//Restart the game 
+function gameCheck() {
+  if (playerScore==5 || compScore==5) {
+    game();
+    playerScore=0;
+    compScore=0;
+  }
+  else {
+    declareW.textContent = "";
+  }
+}
 
 // actually plays the rounds and adds a point to the winner or no points if tie
 function playRound (playerSelect, computerSelect) {
@@ -72,11 +83,7 @@ function playRound (playerSelect, computerSelect) {
           score.textContent= ("It's a draw")
           score.textContent= ("The score is "+ playerScore + " - " + compScore);
       }
-      if (playerScore===5 || compScore===5) {
-        game();
-        playerScore = 0;
-        compScore = 0;
-      }
+      gameCheck()
 };
 
       // declares the winner
@@ -84,14 +91,15 @@ function game () {
 
 
     if (playerScore < compScore) {
-      return score.textContent= ("You have lost the game! Try again, I know you can do it!")
+      return declareW.textContent = ("You have lost the game! Try again, I know you can do it!")
     }
        else if (playerScore > compScore) {
-         return score.textContent= ("You have  won the game! Congratulations!")
+         return declareW.textContent = ("You have  won the game! Congratulations!")
        }
         else if (playerScore === compScore) {
-          return score.textContent= ("It's a tie! What a battle!!")
+          return declareW.textContent = ("It's a tie! What a battle!!")
         }
+
     }
   
   
