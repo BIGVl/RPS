@@ -9,9 +9,10 @@ const scissors = document.querySelector('.scissors');
 const buttons = document.querySelector('.buttons');
 const score = document.querySelector('.score');
 const declareW = document.querySelector('.declareW');
+const state = document.querySelector('.state');
 
 
-
+// DOM
 
 
 rock.addEventListener('click',e =>{
@@ -57,30 +58,32 @@ function gameCheck() {
     game();
     playerScore=0;
     compScore=0;
+
   }
   else {
-    declareW.textContent = "";
+    declareW.textContent= "";
   }
-}
+};
 
 // actually plays the rounds and adds a point to the winner or no points if tie
 function playRound (playerSelect, computerSelect) {
       if (playerSelect === 1 && computerSelect === 3 || playerSelect === 2 && computerSelect === 1 || 
       playerSelect === 3 && computerSelect === 2  ) {
       
-        score.textContent= ("You have won this round!")
+        state.textContent= ("You have won this round!")
         playerScore++;
         score.textContent= ("The score is "+ playerScore + " - " + compScore);
+
       }
       else if (playerSelect === 3 && computerSelect === 1 || playerSelect === 1 && computerSelect === 2 || 
       playerSelect === 2 && computerSelect === 3) {
-        score.textContent= ("You have lost this round!")
+        state.textContent= ("You have lost this round!")
         compScore++;
         score.textContent= ("The score is "+ playerScore + " - " + compScore);
       }
       else if (playerSelect === 3 && computerSelect === 3 || playerSelect === 1 && computerSelect === 1 || 
       playerSelect === 2 && computerSelect === 2) {
-          score.textContent= ("It's a draw")
+          state.textContent= ("It's a draw")
           score.textContent= ("The score is "+ playerScore + " - " + compScore);
       }
       gameCheck()
