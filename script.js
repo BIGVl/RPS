@@ -10,6 +10,9 @@ const buttons = document.querySelector('.buttons');
 const score = document.querySelector('.score');
 const declareW = document.querySelector('.declareW');
 const state = document.querySelector('.state');
+const computerOpt = document.querySelector('.computerOpt');
+const playerOpt = document.querySelector('.playerOpt');
+
 
 
 // DOM
@@ -28,23 +31,6 @@ scissors.addEventListener('click',e =>{
   
 });
 
-  //random computer choice 
-  function computerPlay () {
-  
-    let result;
-    let random = Math.floor(Math.random() * 3) + 1;
-  
-    if (random === 1) {
-      result = 1;
-    } else if (random === 2) {
-      result = 2;
-    } else if (random === 3) {
-      result = 3;
-    } else {
-      return "error";
-    }
-    return result;
-  };
  
 
 
@@ -66,6 +52,30 @@ function gameCheck() {
 };
 
 // actually plays the rounds and adds a point to the winner or no points if tie
+
+
+  //random computer choice 
+  function computerPlay () {
+  
+    let result;
+    let random = Math.floor(Math.random() * 3) + 1;
+  
+    if (random === 1) {
+      result = 1;
+      computerOpt.textContent= ('The computer choose ROCK');
+    } else if (random === 2) {
+      result = 2;
+      computerOpt.textContent= ('The computer choose PAPER');
+    } else if (random === 3) {
+      result = 3;
+      computerOpt.textContent= ('The computer choose SCISSORS');
+    } else {
+      return "error";
+    }
+    return result;
+  };
+
+
 function playRound (playerSelect, computerSelect) {
       if (playerSelect === 1 && computerSelect === 3 || playerSelect === 2 && computerSelect === 1 || 
       playerSelect === 3 && computerSelect === 2  ) {
